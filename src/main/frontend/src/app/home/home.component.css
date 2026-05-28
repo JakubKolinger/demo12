@@ -1,0 +1,147 @@
+.home-container {
+  padding: 10px 0;
+}
+
+/* Uvítací panel */
+.welcome-hero {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-hero h1 {
+  color: #ffffff;
+  border-bottom: none;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  padding-bottom: 0;
+}
+
+.welcome-hero p {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin-bottom: 25px;
+}
+
+/* Tlačítko v Hero sekci */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-primary {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+}
+
+/* Grid layout */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Úprava karty, která je nyní odkazem <a> */
+.dash-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 25px;
+  text-decoration: none; /* Zruší podtržení textu v celé kartě */
+  color: inherit;        /* Karta převezme normální barvu textu, nebude celá modrá */
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;       /* Zobrazí ruku při najetí myši */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.dash-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e1;
+}
+
+/* Ikony */
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.icon-students { background-color: #eff6ff; }
+.icon-contacts { background-color: #ecfdf5; }
+.icon-about { background-color: #f5f3ff; }
+
+.dash-card h3 {
+  color: #1e293b;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.dash-card p {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* Spodní textový odkaz (nyní jako <span>) */
+.card-link {
+  color: #3b82f6;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+  margin-top: auto;
+}
+
+/* Když najedeš myší na KARTU, změní se barva spodního textu */
+.dash-card:hover .card-link {
+  color: #2563eb;
+  text-decoration: underline; /* Podtrhne se pouze samotný odkaz dole, ne celý text */
+}
+
+/* Tlačítko v Hero sekci */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;              /* Odstraní výchozí ošklivý rámeček tlačítka */
+  cursor: pointer;          /* Zobrazí ruku při najetí myši */
+  font-family: inherit;      /* Převezme globální písmo */
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-primary {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb; /* Tmavší modrá při najetí */
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}

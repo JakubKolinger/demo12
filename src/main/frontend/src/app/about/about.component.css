@@ -1,0 +1,43 @@
+.about-container {
+  padding: 10px 0;
+}
+
+.about-hero {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  border-left: 5px solid #3b82f6;
+}
+
+.about-hero h2 {
+  color: #1e3a8a;
+  margin-bottom: 10px;
+}
+
+.lead {
+  font-size: 1.2rem;
+  color: #1e40af;
+}
+
+.about-content h3 {
+  margin: 20px 0 10px 0;
+  color: #1e293b;
+}
+
+.skills-list {
+  list-style-type: none;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.skills-list li {
+  background-color: #f1f5f9;
+  color: #475569;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  border: 1px solid #e2e8f0;
+}
