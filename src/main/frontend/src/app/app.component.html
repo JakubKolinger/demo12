@@ -1,10 +1,16 @@
-<h1>Nějaký web s nějakýma lidma</h1>
+<div class="header-top-bar">
+  <h1>Moje Škola</h1>
+
+  <a routerLink="/login" class="profile-avatar" title="Přihlásit se">
+    <span>👤</span>
+  </a>
+</div>
 
 <nav >
   <a  routerLink="/home">Domů</a>
-  <a  routerLink="/users">Uživatelé</a>
   <a  routerLink="/contacts">Kontakty</a>
   <a  routerLink="/about">O mě</a>
+  <a  routerLink="/users">Uživatelé</a>
 </nav>
 
 <router-outlet />

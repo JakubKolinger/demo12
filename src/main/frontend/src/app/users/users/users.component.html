@@ -1,15 +1,21 @@
-
-<h2>Studenti</h2>
+<h2>{{ title }}</h2>
 
 <p *ngIf="loading">Načítání...</p>
 <p *ngIf="error" style="color: red">{{ error }}</p>
 
 <table *ngIf="!loading && !error">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Jméno</th>
+    <th>Email</th>
+  </tr>
+  </thead>
   <tbody>
-    <tr *ngFor="let user of users">
-      <td>{{ user.id }}</td>
-      <td>{{ user.name }}</td>
-      <td>{{ user.email }}</td>
-    </tr>
+  <tr *ngFor="let user of users">
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+  </tr>
   </tbody>
 </table>

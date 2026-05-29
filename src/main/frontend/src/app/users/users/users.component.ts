@@ -1,37 +1,115 @@
-import {Component, OnInit} from '@angular/core';
-import {User} from '../../user.model';
-import {UserService} from '../../user.service';
-import {CommonModule} from '@angular/common';
+import { Component, OnInit, Input } from '@angular/core';
+import { User } from '../../user.model';
+import { StudentService, TeacherService } from '../../user.service';
+import { CommonModule } from '@angular/common';
 
+// ====================================================================
+// 1. UNIVERZÁLNÍ TABULKA (Tato jediná se dívá do users.component.html)
+// ====================================================================
 @Component({
-  selector: 'app-users',
+  selector: 'app-user-table',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './users.component.html',
+  templateUrl: './users.component.html', // Společné HTML pro zobrazení tabulky
   styleUrl: './users.component.css'
 })
-export class UsersComponent implements OnInit {
-  users: User[] = [];
+export class UserTableComponent {
+  @Input() title: string = '';       // Nadpis (Učitelé / Studenti)
+  @Input() users: User[] = [];       // Data, která se mají vykreslit
+  @Input() loading: boolean = true;  // Stav načítání
+  @Input() error: string | null = null; // Chybová hláška
+}
+
+// ====================================================================
+// 2. KOMPONENTA PRO UČITELE
+// ====================================================================
+@Component({
+  selector: 'app-teachers',
+  standalone: true,
+  imports: [CommonModule, UserTableComponent],
+  template: `
+    <app-user-table
+      title="Učitelé"
+      [users]="teachers"
+      [loading]="loading"
+      [error]="error">
+    </app-user-table>
+  `,
+  styleUrl: './users.component.css'
+})
+export class TeacherComponent implements OnInit {
+  teachers: User[] = [];
   error: string | null = null;
   loading = true;
 
-  constructor(private userService: UserService) {}
+  constructor(private teacherService: TeacherService) {}
 
-  ngOnInit(): void{
-    this.userService.getUsers().subscribe({
+  ngOnInit(): void {
+    this.teacherService.getTeachers().subscribe({
       next: (data) => {
-        this.users = data;
+        this.teachers = data;
         this.loading = false;
-        if (data.length === 0) {
-          this.error = "no users";
-        } else {
-          this.error = null;
-        }
+        if (data.length === 0) this.error = "no teachers";
       },
       error: () => {
-        this.error = "nestáhli se uživatelé";
+        this.error = "nestáhli se učitelé";
         this.loading = false;
       }
     });
   }
 }
+
+// ====================================================================
+// 3. KOMPONENTA PRO STUDENTY
+// ====================================================================
+@Component({
+  selector: 'app-students',
+  standalone: true,
+  imports: [CommonModule, UserTableComponent],
+  template: `
+    <app-user-table
+      title="Studenti"
+      [users]="students"
+      [loading]="loading"
+      [error]="error">
+    </app-user-table>
+  `,
+  styleUrl: './users.component.css'
+})
+export class StudentComponent implements OnInit {
+  students: User[] = [];
+  error: string | null = null;
+  loading = true;
+
+  constructor(private studentService: StudentService) {}
+
+  ngOnInit(): void {
+    this.studentService.getStudents().subscribe({
+      next: (data) => {
+        this.students = data;
+        this.loading = false;
+        if (data.length === 0) this.error = "no students";
+      },
+      error: () => {
+        this.error = "nestáhli se studenti";
+        this.loading = false;
+      }
+    });
+  }
+}
+
+// ====================================================================
+// 4. HLAVNÍ ZAŠTIŤUJÍCÍ KOMPONENTA (Pro Router)
+// ====================================================================
+@Component({
+  selector: 'app-users',
+  standalone: true,
+  imports: [CommonModule, TeacherComponent, StudentComponent],
+  template: `
+    <app-teachers></app-teachers>
+    <hr style="margin: 40px 0; border: 0; border-top: 1px solid #e2e8f0;">
+    <app-students></app-students>
+  `,
+  styleUrl: './users.component.css'
+})
+export class UsersComponent {}

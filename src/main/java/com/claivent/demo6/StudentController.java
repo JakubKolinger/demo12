@@ -1,7 +1,7 @@
 package com.claivent.demo6;
 
 
-import com.claivent.demo6.model.User;
+import com.claivent.demo6.model.Student;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,25 +10,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class UserController {
-  private final UserServices userServices;
+public class StudentController {
+  private final StudentServices userServices;
 
-  public UserController(UserServices userServices) {
+  public StudentController(StudentServices userServices) {
     this.userServices = userServices;
   }
 
 
   @GetMapping("/users")
     public String users (Model model)   {
-        model.addAttribute("users", userServices.getUsers());
+        model.addAttribute("students", userServices.getStudents());
         return "users"; // → templates/users.html
 }
 
 @CrossOrigin(origins = "http://localhost:4200")
-  @GetMapping("/api/users")
+  @GetMapping("/api/students")
   @ResponseBody
-  public List<User> usersApi(){
-    return userServices.getUsers();
+  public List<Student> usersApi(){
+    return userServices.getStudents();
 }
 
 
