@@ -4,6 +4,8 @@ import {ContactsComponent} from './contacts/contacts.component';
 import {AboutComponent} from './about/about.component';
 import {HomeComponent} from './home/home.component';
 import {LoginComponent} from './login/login.component';
+import {AdduserComponent} from './adduser/adduser.component';
+import {RemoveuserComponent} from './removeuser/removeuser.component';
 
 export const routes: Routes = [
 
@@ -12,5 +14,7 @@ export const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'adduser', component: AdduserComponent},
+  {path: 'removeuser', component: RemoveuserComponent},
 
 ];
