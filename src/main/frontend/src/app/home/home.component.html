@@ -2,31 +2,29 @@
   <section class="welcome-hero">
     <h1>Vítejte ve Vaší Angular aplikaci</h1>
     <p>Tento systém slouží pro efektivní správu studentů, rychlý přístup ke kontaktům a přehled o mém profesním profilu.</p>
-    <button (click)="navigateTo('/users')" class="btn btn-primary">Zobrazit studenty</button>
+    <button (click)="navigateTo('/users')" class="btn-hero">Zobrazit studenty</button>
   </section>
 
   <div class="dashboard-grid">
-
     <div class="dash-card" (click)="navigateTo('/users')">
-      <div class="card-icon icon-students">🎓</div>
+      <div class="card-icon">🎓</div>
       <h3>Správa studentů</h3>
       <p>Prohlížejte si seznam registrovaných studentů, jejich identifikační čísla a kontaktní e-maily.</p>
       <span class="card-link">Přejít na studenty &rarr;</span>
     </div>
 
     <div class="dash-card" (click)="navigateTo('/contacts')">
-      <div class="card-icon icon-contacts">📞</div>
+      <div class="card-icon">📞</div>
       <h3>Kontakty</h3>
       <p>Potřebujete se s námi spojit? Podívejte se na telefonní čísla a e-maily na kompetentní osoby.</p>
       <span class="card-link">Zobrazit kontakty &rarr;</span>
     </div>
 
     <div class="dash-card" (click)="navigateTo('/about')">
-      <div class="card-icon icon-about">👨‍💻</div>
+      <div class="card-icon">👨‍💻</div>
       <h3>O mně</h3>
       <p>Chcete vědět, kdo za tímto projektem stojí? Přečtěte si krátké představení a mé technologické zázemí.</p>
       <span class="card-link">Více o mně &rarr;</span>
     </div>
-
   </div>
 </div>

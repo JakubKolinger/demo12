@@ -1,0 +1,15 @@
+:host { display: block; padding: 24px; max-width: 1200px; margin: 0 auto; }
+.admin-card { background: #ffffff; border: 1px solid #e9e5db; border-top: 4px solid #4a7c59; border-radius: 6px; padding: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.01); }
+.card-header-bar { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f4f1ea; padding-bottom: 12px; margin-bottom: 12px; }
+.card-header-bar h2 { color: #32563d; font-size: 1.4rem; margin: 0; }
+.badge-blue { background-color: #eef3ef; color: #4a7c59; font-size: 0.75rem; font-weight: 600; padding: 4px 8px; border-radius: 4px; }
+.section-desc { color: #8c9288; font-size: 0.9rem; margin-top: 0; margin-bottom: 24px; }
+.coming-soon-box { background-color: #faf9f6; border: 1px dashed #cbd5e1; border-radius: 6px; padding: 40px 20px; text-align: center; margin-bottom: 24px; }
+.visual-indicator { position: relative; display: inline-block; margin-bottom: 15px; }
+.icon-gear { font-size: 3rem; display: inline-block; }
+.pulse-dot { position: absolute; bottom: 5px; right: 5px; width: 12px; height: 12px; background-color: #c87a53; border-radius: 50%; border: 2px solid #faf9f6; }
+.coming-soon-box h3 { color: #32563d; font-size: 1.2rem; margin: 0 0 10px 0; }
+.coming-soon-text { color: #686d64; font-size: 0.9rem; line-height: 1.6; max-width: 600px; margin: 0 auto; }
+.action-footer { border-top: 1px solid #f4f1ea; padding-top: 20px; }
+.btn-secondary { display: inline-block; color: #686d64; text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+.btn-secondary:hover { color: #4a7c59; text-decoration: underline; }

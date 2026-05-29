@@ -6,13 +6,15 @@
   </a>
 </div>
 
-<nav >
-  <a  routerLink="/home">Domů</a>
-  <a  routerLink="/contacts">Kontakty</a>
-  <a  routerLink="/about">O mě</a>
-  <a  routerLink="/users">Uživatelé</a>
-  <a  routerLink="/user/removeS">Přidat uživatele</a>
-  <a  routerLink="/user/remove">Odstranit uživatele</a>
+<nav>
+  <a routerLink="/home" routerLinkActive="active">Domů</a>
+  <a routerLink="/contacts" routerLinkActive="active">Kontakty</a>
+  <a routerLink="/about" routerLinkActive="active">O společnosti</a>
+  <a routerLink="/users" routerLinkActive="active">Uživatelé</a>
+  <a routerLink="/user/add" routerLinkActive="active">Přidat uživatele</a>
+  <a routerLink="/user/remove" routerLinkActive="active">Odstranit uživatele</a>
 </nav>
 
-<router-outlet />
+<div class="main-content-wrapper">
+  <router-outlet />
+</div>

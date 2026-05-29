@@ -1,43 +1,100 @@
 .about-container {
-  padding: 10px 0;
+  padding: 30px 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-card {
+  background: #ffffff;
+  border: 1px solid #e9e5db;
+  border-top: 4px solid #4a7c59; /* Šalvějový strop */
+  border-radius: 6px;
+  padding: 35px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
 }
 
 .about-hero {
-  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-  padding: 30px;
-  border-radius: 10px;
-  margin-bottom: 25px;
-  border-left: 5px solid #3b82f6;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  border-bottom: 1px solid #f4f1ea;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
 }
 
-.about-hero h2 {
-  color: #1e3a8a;
-  margin-bottom: 10px;
+.avatar-big {
+  font-size: 2.8rem;
+  background-color: #f4f1ea;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-text h2 {
+  color: #32563d;
+  font-size: 1.5rem;
+  margin: 0 0 6px 0;
 }
 
 .lead {
-  font-size: 1.2rem;
-  color: #1e40af;
+  color: #686d64;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.about-content p {
+  color: #3b4038;
+  font-size: 0.95rem;
+  line-height: 1.62;
+  margin-bottom: 22px;
 }
 
 .about-content h3 {
-  margin: 20px 0 10px 0;
-  color: #1e293b;
+  color: #32563d;
+  font-size: 1.15rem;
+  margin-bottom: 14px;
 }
 
 .skills-list {
-  list-style-type: none;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px 0;
+  background-color: #faf9f6;
+  border: 1px solid #e9e5db;
+  border-radius: 6px;
+  padding: 18px;
 }
 
 .skills-list li {
-  background-color: #f1f5f9;
-  color: #475569;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-weight: 500;
-  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  color: #51564d;
+  line-height: 1.45;
+}
+
+.skills-list li:last-child {
+  margin-bottom: 0;
+}
+
+.check-icon {
+  color: #4a7c59; /* Zelené fajfky */
+  font-weight: bold;
+}
+
+.about-footer {
+  border-top: 1px solid #f4f1ea;
+  padding-top: 18px;
+  text-align: center;
+}
+
+.about-footer p {
+  font-size: 0.8rem;
+  color: #8c9288;
+  margin: 0;
 }

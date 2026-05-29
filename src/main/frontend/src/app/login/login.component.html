@@ -1,33 +1,17 @@
 <div class="login-wrapper">
-  <div class="login-card">
-
+  <div class="login-card coming-soon-card">
+    <div class="status-badge">Připravujeme</div>
     <h2>Vítejte zpět</h2>
-    <p class="login-subtitle">Pro přístup do systému se prosím přihlaste.</p>
+    <p class="login-subtitle">Školní informační systém</p>
 
-    <form (submit)="$event.preventDefault()">
-      <div class="form-group">
-        <label for="email">E-mailová adresa</label>
-        <input type="email" id="email" placeholder="jmeno@firma.cz" autocomplete="email">
-      </div>
-
-      <div class="form-group">
-        <label for="password">Heslo</label>
-        <input type="password" id="password" placeholder="••••••••" autocomplete="current-password">
-      </div>
-
-      <div class="login-options">
-        <label class="remember-me">
-          <input type="checkbox"> Zapamatovat si mě
-        </label>
-        <a href="#" class="forgot-pass" (click)="$event.preventDefault()">Zapomenuté heslo?</a>
-      </div>
-
-      <button type="submit" class="btn-login">Přihlásit se</button>
-    </form>
-
-    <div class="login-footer">
-      Nemáte ještě účet? <a href="#" (click)="$event.preventDefault()">Zaregistrujte se</a>
+    <div class="coming-soon-content">
+      <div class="icon-clock">⏳</div>
+      <h3>COMING SOON</h3>
+      <p>Modul pro bezpečné přihlašování žáků, rodičů a učitelů je momentálně ve vývoji. Brzy zde naleznete přihlašovací formulář.</p>
     </div>
 
+    <div class="login-footer">
+      Zpět na <a routerLink="/home">Hlavní nástěnku</a>
+    </div>
   </div>
 </div>

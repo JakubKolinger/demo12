@@ -1,14 +1,30 @@
-<h2>Kontakty</h2>
+<div class="contacts-container">
+  <div class="contacts-header">
+    <h2>Kontaktní centrum školy</h2>
+    <p class="section-desc">Oficiální spojení na správu školní evidence a vedení.</p>
+  </div>
 
-<p *ngIf="loading">Načítání...</p>
-<p *ngIf="error" style="color: red">{{ error }}</p>
+  <p *ngIf="loading" class="status-msg">Načítání kontaktů...</p>
+  <p *ngIf="error" class="error-msg">{{ error }}</p>
 
-<table *ngIf="!loading && !error">
-  <tbody>
-  <tr *ngFor="let contact of contacts">
-    <td>{{ contact.name }}</td>
-    <td>{{ contact.email }}</td>
-    <td>{{ contact.phone }}</td>
-  </tr>
-  </tbody>
-</table>
+  <div class="contacts-grid" *ngIf="!loading && !error">
+    <!-- Smyčka vykreslí tolik vizitek, kolik jich pošle backend -->
+    <div class="contact-card" *ngFor="let contact of contacts">
+      <div class="card-avatar">🏛️</div>
+      <div class="card-main">
+        <h3>{{ contact.name }}</h3>
+        <span class="role-badge">Školní správa</span>
+
+        <div class="info-row">
+          <span class="label">E-mail:</span>
+          <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+        </div>
+
+        <div class="info-row">
+          <span class="label">Telefon:</span>
+          <span class="phone-num">{{ contact.phone }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

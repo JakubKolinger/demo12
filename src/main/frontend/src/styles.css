@@ -58,8 +58,4 @@ nav a:hover {
   color: #ffffff;
 }
 
-/* Aktivní odkaz v Angularu */
-nav a.active {
-  background-color: #3b82f6;
-  color: #ffffff;
-}
+
