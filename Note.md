@@ -19,3 +19,8 @@ docker push ghcr.io/jakubkolinger/praxe-backend:vX.Y.Z
 ### kubectl
 
 kubectl apply -f ./gitops/demo/deploy.yaml
+
+
+
+
+ahojky
