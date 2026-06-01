@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jakub
+  namespace: praxe2026
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jakub
+  template:
+    metadata:
+      labels:
+        app: jakub
+    spec:
+      containers:
+        - name: nginx
+          image: ghcr.io/jakubkolinger/praxe-demo12:latest
+          ports:
+            - containerPort: 8080
