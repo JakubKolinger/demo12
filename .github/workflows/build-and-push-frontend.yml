@@ -1,0 +1,39 @@
+name: Build and Push Frontend Docker Image
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'frontend/**'         # spustí se pouze při změně souborů ve frontend/
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_TOKEN }}
+
+      # Převeď jméno vlastníka na lowercase a získej krátký SHA commitu
+      - name: Set environment variables
+        run: |
+          echo "OWNER_LOWER=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+          echo "TAG=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./src/main/frontend
+          push: true
+          # Zde místo github.repository_owner použijeme novou proměnnou env.OWNER_LOWER
+          tags: |
+            ghcr.io/${{ env.OWNER_LOWER }}/praxe-frontend:${{ env.TAG }}
+            ghcr.io/${{ env.OWNER_LOWER }}/praxe-frontend:latest
