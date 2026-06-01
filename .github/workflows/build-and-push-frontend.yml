@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - 'frontend/**'         # spustí se pouze při změně souborů ve frontend/
+      - 'src/main/frontend/**'         # spustí se pouze při změně souborů ve frontend/
 
 jobs:
   build:
