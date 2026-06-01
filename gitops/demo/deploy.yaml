@@ -20,3 +20,5 @@ spec:
           image: ghcr.io/jakubkolinger/praxe-demo12:latest
           ports:
             - containerPort: 8080
+
+
