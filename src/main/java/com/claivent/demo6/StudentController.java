@@ -18,10 +18,10 @@ public class StudentController {
   }
 
 
-  @GetMapping("/users")
+  @GetMapping("/students")
     public String users (Model model)   {
         model.addAttribute("students", userServices.getStudents());
-        return "users"; // → templates/users.html
+        return "students"; // → templates/users.html
 }
 
 @CrossOrigin(origins = "http://localhost:4200")

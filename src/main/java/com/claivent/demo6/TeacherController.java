@@ -18,7 +18,7 @@ public class TeacherController {
 
   @GetMapping("/teachers")
     public String users (Model model)   {
-        model.addAttribute("users", teacherServices.getTeachers());
+        model.addAttribute("teachers", teacherServices.getTeachers());
         return "teachers"; // → templates/users.html
 }
 
