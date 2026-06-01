@@ -35,5 +35,5 @@ jobs:
           push: true
           # Zde místo github.repository_owner použijeme novou proměnnou env.OWNER_LOWER
           tags: |
-            ghcr.io/${{ env.OWNER_LOWER }}/praxe-frontend:${{ env.TAG }}
-            ghcr.io/${{ env.OWNER_LOWER }}/praxe-frontend:latest
+            ghcr.io/${{ env.OWNER_LOWER }}/praxe-demo12-frontend:${{ env.TAG }}
+            ghcr.io/${{ env.OWNER_LOWER }}/praxe-demo12-frontend:latest
