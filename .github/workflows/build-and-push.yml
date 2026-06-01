@@ -1,14 +1,13 @@
 name: Build and Push Docker Image
 
-# Spustí se při každém push do větve main (nebo master)
 on:
   push:
     branches:
-      - master       # změň na "master" pokud používáš master
+      - master
 
 jobs:
   build:
-    runs-on: ubuntu-latest   # GitHub poskytuje runner zdarma
+    runs-on: ubuntu-latest
 
     steps:
       # 1. Stáhni kód z repozitáře
@@ -20,19 +19,22 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}          # tvůj GitHub username
-          password: ${{ secrets.GHCR_TOKEN }}    # PAT token z Kroku 2
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_TOKEN }}
 
-      # 3. Získej krátký SHA commitu jako tag (např. "a1b2c3d")
-      - name: Set image tag
-        run: echo "TAG=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+      # 3. Převeď jméno vlastníka na lowercase a získej krátký SHA commitu
+      - name: Set environment variables
+        run: |
+          echo "OWNER_LOWER=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+          echo "TAG=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
 
       # 4. Sestav a nahraj image
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: .           # složka kde je Dockerfile (. = kořen projektu)
+          context: .
           push: true
+          # Zde místo github.repository_owner použijeme novou proměnnou env.OWNER_LOWER
           tags: |
-            ghcr.io/${{ github.repository_owner }}/praxe-demo12:${{ env.TAG }}
-            ghcr.io/${{ github.repository_owner }}/praxe-demo12:latest
+            ghcr.io/${{ env.OWNER_LOWER }}/praxe-demo12:${{ env.TAG }}
+            ghcr.io/${{ env.OWNER_LOWER }}/praxe-demo12:latest
