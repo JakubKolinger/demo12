@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jakub-fe
+  namespace: praxe2026
+  labels:
+    app: jakub-fe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jakub-fe
+  template:
+    metadata:
+      labels:
+        app: jakub-fe
+    spec:
+      containers:
+        - name: jakub-fe
+          image: ghcr.io/jakubkolinger/praxe-d:latest
+          ports:
+            - containerPort: 8090
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: jakub-svc
+  namespace: praxe2026
+spec:
+  selector:
+    app: jakub
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8090
