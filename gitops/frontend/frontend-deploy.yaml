@@ -18,6 +18,7 @@ spec:
       containers:
         - name: jakub-fe
           image: ghcr.io/jakubkolinger/praxe-demo12-frontend:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8090
 
