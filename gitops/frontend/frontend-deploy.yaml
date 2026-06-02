@@ -22,7 +22,7 @@ spec:
         - name: jakub-frontend
           image: ghcr.io/jakubkolinger/praxe-demo12-frontend:latest
           ports:
-            - containerPort: 80
+            - containerPort: 4200
 ---
 apiVersion: v1
 kind: Service
@@ -37,4 +37,4 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80
+      targetPort: 4200
