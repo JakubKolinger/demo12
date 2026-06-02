@@ -16,7 +16,7 @@ export class StudentService {
 
 @Injectable({ providedIn: 'root' })
 export class TeacherService {
-  private apiUrl = 'https://jakub-backend/api/teachers';
+  private apiUrl = 'http://jakub-backend/api/teachers';
 
   constructor(private http: HttpClient) {}
 
