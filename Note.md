@@ -30,5 +30,5 @@ docker push ghcr.io/jakubkolinger/praxe-backend:vX.Y.Z
 kubectl apply -f ./gitops/demo/
 ```
 ```
-kubectl apply -f ./gitops/frontend/frontend-eploy.yaml
+kubectl apply -f ./gitops/frontend/frontend-deploy.yaml
 ```
