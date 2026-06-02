@@ -18,14 +18,14 @@ public class StudentController {
   }
 
 
-  @GetMapping("/students")
+  @GetMapping("/api/students")
     public String users (Model model)   {
         model.addAttribute("students", userServices.getStudents());
         return "students"; // → templates/users.html
 }
 
 @CrossOrigin(origins = "http://localhost:4200")
-  @GetMapping("/api/students")
+  @GetMapping("/students")
   @ResponseBody
   public List<Student> usersApi(){
     return userServices.getStudents();
