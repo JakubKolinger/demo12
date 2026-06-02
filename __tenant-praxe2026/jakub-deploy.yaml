@@ -17,6 +17,7 @@ spec:
       containers:
         - name: demo
           image: ghcr.io/jakubkolinger/praxe-demo12:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8090
 ---
