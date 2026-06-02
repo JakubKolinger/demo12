@@ -16,14 +16,14 @@ public class TeacherController {
   public TeacherController(TeacherServices teacherServices) {this.teacherServices = teacherServices;}
 
 
-  @GetMapping("/api/teachers")
+  @GetMapping("/teachers")
     public String users (Model model)   {
         model.addAttribute("teachers", teacherServices.getTeachers());
         return "teachers"; // → templates/users.html
 }
 
 @CrossOrigin(origins = "http://localhost:4200")
-  @GetMapping("/teachers")
+  @GetMapping("/api/teachers")
   @ResponseBody
   public List<Teacher> teachersApi(){
     return teacherServices.getTeachers();

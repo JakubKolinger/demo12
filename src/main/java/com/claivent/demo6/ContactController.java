@@ -18,14 +18,14 @@ public class ContactController {
     }
 
 
-    @GetMapping("/api/contacts")
+    @GetMapping("/contacts")
     public String contacts (Model model)   {
         model.addAttribute("contacts", contactServices.getContacts());
         return "contacts"; // → templates/contacts.htmll
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/contacts")
+    @GetMapping("/api/contacts")
     @ResponseBody
     public List<contact> contactsApi(){
         return contactServices.getContacts();
