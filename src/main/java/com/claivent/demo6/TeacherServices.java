@@ -11,7 +11,7 @@ public class TeacherServices {
   public List<Teacher> getTeachers() {
     return List.of(
         new Teacher(4L, "Karel Barel",   "karel@example.com"),
-        new Teacher(5L, "Petr Skála",  "petr@example.com"),
+        new Teacher(5L, "Petr Skalka",  "petr@example.com"),
         new Teacher(6L, "Jan Zapletený", "jan.zap@example.com")
     );
   }
