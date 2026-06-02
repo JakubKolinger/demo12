@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: jakub-fe
-          image: ghcr.io/jakubkolinger/praxe-d:latest
+          image: ghcr.io/jakubkolinger/praxe-demo12-frontend:latest
           ports:
             - containerPort: 8090
 
@@ -35,4 +35,4 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 8090
+      targetPort: 4200
