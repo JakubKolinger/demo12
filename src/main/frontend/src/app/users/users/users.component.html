@@ -1,25 +1,35 @@
 <div class="table-card">
-  <h2>{{ title }}</h2>
-
-  <p *ngIf="loading" class="table-loading">Načítání uživatelů...</p>
-  <p *ngIf="error" class="table-error">{{ error }}</p>
-
-  <div class="table-responsive" *ngIf="!loading && !error">
-    <table>
-      <thead>
-      <tr>
-        <th>ID</th>
-        <th>Jméno</th>
-        <th>Email</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{ user.id }}</td>
-        <td>{{ user.name }}</td>
-        <td>{{ user.email }}</td>
-      </tr>
-      </tbody>
-    </table>
+  <div class="card-header-flex">
+    <h2>{{ title }}</h2>
+    <a routerLink="/user/add" class="btn-add-header" title="Přidat nového">
+      <span class="plus-icon">＋</span>
+    </a>
   </div>
+
+  <p *ngIf=\"loading\" class="table-loading">Načítání uživatelů...</p>
+  <p *ngIf=\"error\" class="table-error">{{ error }}</p>
+
+  <div class="table-responsive" *ngIf=\"!loading && !error\">
+  <table>
+    <thead>
+    <tr>
+      <th class="col-action">Akce</th> <th>ID</th>
+      <th>Jméno</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor=\"let user of users\" class="user-row">
+    <td class="col-action">
+      <a routerLink="/user/remove" class="btn-delete-trash" title="Odstranit uživatele">
+        <span class="trash-icon">🗑️</span>
+      </a>
+    </td>
+    <td>{{ user.id }}</td>
+    <td class="user-name-cell">{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 </div>

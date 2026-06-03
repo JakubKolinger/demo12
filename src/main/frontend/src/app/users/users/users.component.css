@@ -7,13 +7,42 @@
   margin-bottom: 20px;
 }
 
-.table-card h2 {
-  color: #32563d;
-  font-size: 1.2rem;
-  margin-top: 0;
-  margin-bottom: 14px;
+/* Flexbox pro nadpis a plusko vedle sebe */
+.card-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 2px solid #f4f1ea;
   padding-bottom: 8px;
+  margin-bottom: 14px;
+}
+
+.card-header-flex h2 {
+  color: #32563d;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* Stylování modrého pluska v nadpisu */
+.btn-add-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #4682b4; /* Elegantní ocelová modř */
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 5px rgba(70, 130, 180, 0.2);
+}
+
+.btn-add-header:hover {
+  background-color: #2b669a;
+  transform: scale(1.1);
 }
 
 .table-loading { color: #8c9288; font-size: 0.9rem; font-style: italic; }
@@ -21,18 +50,18 @@
   background-color: #fdf2f2; color: #9b1c1c; padding: 12px; border-radius: 6px; font-size: 0.9rem; border-left: 4px solid #f8b4b4;
 }
 
-/* Klíč pro mobilní zařízení - tabulka nezpůsobí přetečení stránky */
+/* Responzivní obal tabulky */
 .table-responsive {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  margin-horizontal: -16px; /* Využití prostoru na maximum */
+  margin-horizontal: -16px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  min-width: 500px; /* Garantuje čitelnost sloupců i při posunu */
+  min-width: 550px; /* Mírně zvětšeno kvůli novému sloupci */
 }
 
 th {
@@ -51,19 +80,63 @@ td {
   color: #3b4038;
   font-size: 0.88rem;
   border-bottom: 1px solid #f4f1ea;
+  vertical-align: middle;
 }
 
 tr:nth-child(even) td { background-color: #fbfbfa; }
 tr:hover td { background-color: #f4f7f4; }
 
-td:first-child { color: #8c9288; font-weight: 600; width: 60px; }
-td:nth-child(2) { font-weight: 500; color: #21241f; }
+/* Sloupec s akcemi */
+.col-action {
+  width: 70px;
+  text-align: center;
+}
 
-/* Zvětšení polstrování na desktopech */
+/* Tlačítko koše */
+.btn-delete-trash {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  text-decoration: none;
+  border-radius: 4px;
+  background-color: rgba(239, 68, 68, 0.05); /* Velmi jemný červený podbarvený čtvereček */
+  font-size: 0.95rem;
+  opacity: 0.7; /* Na mobilu lehce průhledný, aby nekřičel */
+  transition: all 0.2s ease;
+}
+
+/* Hover efekt navázaný na CELÝ ŘÁDEK (tr) */
+.user-row:hover .btn-delete-trash {
+  opacity: 1;
+  background-color: #fde8e8; /* Světle červené pozadí buňky při najetí */
+  transform: scale(1.15);
+}
+
+.user-row:hover .trash-icon {
+  filter: drop-shadow(0 0 1px rgba(220, 38, 38, 0.2));
+}
+
+td:nth-child(2) { color: #8c9288; font-weight: 600; } /* ID studenta */
+.user-name-cell { font-weight: 500; color: #21241f; }
+
+/* Desktop vylepšení pro monitory */
 @media (min-width: 768px) {
   .table-card { padding: 26px; margin-bottom: 28px; }
-  .table-card h2 { font-size: 1.35rem; margin-bottom: 18px; }
+  .card-header-flex { margin-bottom: 18px; padding-bottom: 12px; }
+  .card-header-flex h2 { font-size: 1.35rem; }
+
+  .btn-add-header { width: 36px; height: 36px; font-size: 1.2rem; }
+
   th { padding: 14px 16px; font-size: 0.8rem; }
   td { padding: 14px 16px; font-size: 0.9rem; }
-  td:first-child { width: 70px; }
+
+  /* Skrytí koše na desktopu, dokud neuživatel nenajede na řádek */
+  .btn-delete-trash {
+    opacity: 0;
+  }
+  .user-row:hover .btn-delete-trash {
+    opacity: 1;
+  }
 }
