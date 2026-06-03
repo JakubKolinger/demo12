@@ -9,7 +9,7 @@ metadata:
 rules:
   - apiGroups: [""]
     resources: ["pods", "pods/log", "pods/exec", "services", "endpoints",
-                 "configmaps", "secrets", "persistentvolumeclaims",
+                 "configmaps", "secrets", "persistentvolumes", "persistentvolumeclaims",
                  "events", "resourcequotas", "limitranges"]
     verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
   - apiGroups: ["apps"]

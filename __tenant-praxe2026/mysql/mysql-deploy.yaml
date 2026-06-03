@@ -67,11 +67,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mentor-mysql
-  namespace: mentors
+  name: jakub-mysql
+  namespace: praxe2026
 spec:
   selector:
-    app: mentor-mysql
+    app: jakub-mysql
   ports:
     - port: 3306
       targetPort: 3306
