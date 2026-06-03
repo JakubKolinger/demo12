@@ -21,7 +21,7 @@ data:
     );
 
     INSERT INTO db_users (name, email) VALUES
-        ('Alice Nováková',  'alice@demo6.com'),
-        ('Bob Procházka',   'bob@demo6.com'),
-        ('Carol Dvořáková', 'carol@demo6.com')
+        ('Alice Nováková',  'alice@dexample.com'),
+        ('Bob Procházka',   'bob@example.com'),
+        ('Carol Dvořáková', 'carol@example.com')
     ON DUPLICATE KEY UPDATE name = VALUES(name);
