@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../../user.model';
 import { StudentService, TeacherService } from '../../user.service';
 import { CommonModule } from '@angular/common';
+import {RouterModule, RouterOutlet} from '@angular/router';
 
 // ====================================================================
 // 1. UNIVERZÁLNÍ TABULKA (Tato jediná se dívá do users.component.html)
@@ -9,7 +10,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-user-table',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule, RouterOutlet],
   templateUrl: './users.component.html', // Společné HTML pro zobrazení tabulky
   styleUrl: './users.component.css'
 })
