@@ -139,14 +139,14 @@ jobs:
 
 ## Rozdíl mezi backend a frontend workflow
 
-| | Backend | Frontend |
-|--|---------|----------|
-| Workflow soubor | `build-and-push.yml` | `build-and-push-frontend.yml` |
-| Spouští se při změně | cokoliv | pouze `frontend/**` |
-| Dockerfile | `./Dockerfile` | `./frontend/Dockerfile` |
+| | Backend                            | Frontend |
+|--|------------------------------------|----------|
+| Workflow soubor | `build-and-push.yml`               | `build-and-push-frontend.yml` |
+| Spouští se při změně | cokoliv                            | pouze `frontend/**` |
+| Dockerfile | `./Dockerfile`                     | `./frontend/Dockerfile` |
 | Base image | `maven` + `eclipse-temurin:21-jre` | `node:20-alpine` |
-| Port | 8080 | 4200 |
-| Image name | `praxe-demo6` | `praxe-demo6-frontend` |
+| Port | 8090                               | 4200 |
+| Image name | `praxe-demo6`                      | `praxe-demo6-frontend` |
 
 ---
 

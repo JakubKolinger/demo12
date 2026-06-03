@@ -32,3 +32,16 @@ kubectl apply -f ./gitops/demo/
 ```
 kubectl apply -f ./gitops/frontend/frontend-deploy.yaml
 ```
+### linuk
+
+```
+nc -zv localhst 3306
+```
+```
+echo > /dev/tcp/localhost/3306 && echo "Port otevřen" || echo "Port zavřen"
+```
+```
+ss -tlnp | grep 3306
+```
+
+

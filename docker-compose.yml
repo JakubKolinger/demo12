@@ -27,7 +27,7 @@ services:
       - .:/app
       - maven-repo:/root/.m2
     ports:
-      - "8080:8080"
+      - "8090:8090"
     command: mvn -version
 
 
@@ -37,11 +37,14 @@ services:
       dockerfile: Dockerfile
     container_name: spring-backend
     ports:
-        - "8080:8080"
+        - "8090:8090"
     environment:
       SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/demo12db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC"
       SPRING_DATASOURCE_USERNAME: demo12admin
       SPRING_DATASOURCE_PASSWORD: Demo12Pass1!
+    depends_on:
+      mysql:
+        condition: service_healthy
 
   frontend:
     build:
@@ -59,9 +62,9 @@ services:
       - .:/app
       - maven-repo:/root/.m2
     ports:
-      - "8080:8080"
+      - "8090:8090"
     environment:
-      SPRING_DATASOURCE_URL: "jdbc:mysql://demo12-mysql:3306/demo12db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/demo12db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC"
       SPRING_DATASOURCE_USERNAME: demo12admin
       SPRING_DATASOURCE_PASSWORD: Demo12Pass1!
     depends_on:
