@@ -1,5 +1,16 @@
 spring:
   application:
-    name: demo6
+    name: demo12
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://demo12-mysql:3306/demo12db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC}
+    username: ${SPRING_DATASOURCE_USERNAME:demo12admin}
+    password: ${SPRING_DATASOURCE_PASSWORD:Demo12Pass1!}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+
 server:
   port: 8090
+
