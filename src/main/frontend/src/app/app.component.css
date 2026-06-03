@@ -3,14 +3,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #4a7c59; /* Ladná přírodní zelená */
-  padding: 16px 24px;
+  background-color: #4a7c59;
+  padding: 16px 20px;
   color: #ffffff;
   box-shadow: 0 4px 12px rgba(74, 124, 89, 0.08);
 }
 
 .header-top-bar h1 {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: 600;
   margin: 0;
   letter-spacing: 0.3px;
@@ -29,42 +29,43 @@
   text-decoration: none;
   font-size: 1.1rem;
   transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 
-.profile-avatar:hover {
-  background-color: rgba(255, 255, 255, 0.25);
-  transform: translateY(-1px);
-}
-
-/* Hlavní menu */
+/* Hlavní menu - na mobilu horizontálně posuvné */
 nav {
   display: flex;
-  background-color: #faf9f6; /* Teplá čistá bílá */
-  padding: 0 24px;
+  background-color: #faf9f6;
+  padding: 0 10px;
   border-bottom: 1px solid #e9e5db;
-  overflow-x: auto;
-  gap: 8px;
+  overflow-x: auto; /* Klíčové pro mobilní swipování */
+  -webkit-overflow-scrolling: touch; /* Hladký posun na iOS */
+  gap: 4px;
+}
+
+/* Skrytí scrollbaru v menu, aby vypadalo čistě */
+nav::-webkit-scrollbar {
+  display: none;
 }
 
 nav a {
-  padding: 16px 14px;
-  color: #686d64; /* Jemná zemitá šedá */
+  padding: 14px 12px;
+  color: #686d64;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 500;
   border-bottom: 3px solid transparent;
-  white-space: nowrap;
+  white-space: nowrap; /* Text se nikdy nezalomí pod sebe */
   transition: all 0.2s ease;
 }
 
 nav a:hover {
   color: #32563d;
-  background-color: #f4f1ea; /* Lehký pískový nádech */
+  background-color: #f4f1ea;
 }
 
-/* Aktivní odkaz (Ladný akcent cihlové/terakoty) */
 nav a.active {
-  color: #c87a53; /* Elegantní teplý akcent */
+  color: #c87a53;
   border-bottom-color: #c87a53;
   background-color: #f3eddf;
   font-weight: 600;
@@ -72,7 +73,16 @@ nav a.active {
 
 /* Obal pro vnitřní stránky */
 .main-content-wrapper {
-  background-color: #f4f1ea; /* Měkké, matné pískové pozadí příjemné pro oči */
+  background-color: #f4f1ea;
   min-height: calc(100vh - 120px);
-  padding-bottom: 40px;
+  padding: 20px 15px 40px 15px;
+}
+
+/* Zvětšení odsazení a textu pro tablety a PC */
+@media (min-width: 768px) {
+  .header-top-bar { padding: 16px 24px; }
+  .header-top-bar h1 { font-size: 1.4rem; }
+  nav { padding: 0 24px; gap: 8px; }
+  nav a { padding: 16px 14px; font-size: 0.9rem; }
+  .main-content-wrapper { padding: 30px 24px 40px 24px; }
 }

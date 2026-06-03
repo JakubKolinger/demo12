@@ -10,11 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Stáhni kód z repozitáře
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Přihlas se do GitHub Container Registry
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
         with:
@@ -22,19 +20,22 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_TOKEN }}
 
-      # 3. Převeď jméno vlastníka na lowercase a získej krátký SHA commitu
       - name: Set environment variables
         run: |
-          echo "OWNER_LOWER=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+          OWNER_LOWER=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')
+          echo "OWNER_LOWER=$OWNER_LOWER" >> $GITHUB_ENV
           echo "TAG=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+          
+          # Skriptu předáme jen vlastníka, token a název image
+          VLASTNI_TAG=$(./get-tag.sh "$OWNER_LOWER" "${{ secrets.GHCR_TOKEN }}" "praxe-demo12")
+          echo "VLASTNI_TAG=$VLASTNI_TAG" >> $GITHUB_ENV
 
-      # 4. Sestav a nahraj image
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          # Zde místo github.repository_owner použijeme novou proměnnou env.OWNER_LOWER
           tags: |
             ghcr.io/${{ env.OWNER_LOWER }}/praxe-demo12:${{ env.TAG }}
             ghcr.io/${{ env.OWNER_LOWER }}/praxe-demo12:latest
+            ${{ env.VLASTNI_TAG != '' && format('ghcr.io/{0}/praxe-demo12:{1}', env.OWNER_LOWER, env.VLASTNI_TAG) || '' }}

@@ -1,5 +1,4 @@
 .about-container {
-  padding: 30px 24px;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -9,73 +8,76 @@
   border: 1px solid #e9e5db;
   border-top: 4px solid #4a7c59; /* Šalvějový strop */
   border-radius: 6px;
-  padding: 35px;
+  padding: 20px 16px; /* Menší padding pro mobilní displeje */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
 }
 
 .about-hero {
   display: flex;
-  align-items: center;
-  gap: 22px;
+  flex-direction: column; /* Na mobilu pod sebou */
+  align-items: center; /* Vycentrování prvků */
+  text-align: center;
+  gap: 16px;
   border-bottom: 1px solid #f4f1ea;
-  padding-bottom: 24px;
-  margin-bottom: 24px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .avatar-big {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   background-color: #f4f1ea;
-  width: 74px;
-  height: 74px;
+  width: 66px;
+  height: 66px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .hero-text h2 {
   color: #32563d;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin: 0 0 6px 0;
 }
 
 .lead {
   color: #686d64;
-  font-size: 1rem;
+  font-size: 0.95rem;
   margin: 0;
 }
 
 .about-content p {
   color: #3b4038;
-  font-size: 0.95rem;
-  line-height: 1.62;
-  margin-bottom: 22px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
 .about-content h3 {
   color: #32563d;
-  font-size: 1.15rem;
-  margin-bottom: 14px;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
 }
 
 .skills-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 28px 0;
+  margin: 0 0 24px 0;
   background-color: #faf9f6;
   border: 1px solid #e9e5db;
   border-radius: 6px;
-  padding: 18px;
+  padding: 14px;
 }
 
 .skills-list li {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  align-items: flex-start; /* Zarovnání fajfky i při zalomení textu */
+  gap: 10px;
   margin-bottom: 12px;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: #51564d;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .skills-list li:last-child {
@@ -83,18 +85,48 @@
 }
 
 .check-icon {
-  color: #4a7c59; /* Zelené fajfky */
+  color: #4a7c59;
   font-weight: bold;
+  flex-shrink: 0;
+}
+
+.text {
+  min-width: 0;
 }
 
 .about-footer {
   border-top: 1px solid #f4f1ea;
-  padding-top: 18px;
+  padding-top: 16px;
   text-align: center;
 }
 
 .about-footer p {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: #8c9288;
   margin: 0;
+  line-height: 1.4;
+}
+
+/* Výchozí zvětšení a rozložení pro tablety a PC rozlišení */
+@media (min-width: 768px) {
+  .about-card { padding: 35px; }
+
+  .about-hero {
+    flex-direction: row; /* Ikona a text vedle sebe */
+    align-items: center;
+    text-align: left;
+    gap: 22px;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+  }
+
+  .avatar-big { font-size: 2.8rem; width: 74px; height: 74px; }
+  .hero-text h2 { font-size: 1.5rem; }
+  .lead { font-size: 1rem; }
+  .about-content p { font-size: 0.95rem; }
+  .about-content h3 { font-size: 1.15rem; }
+  .skills-list { padding: 18px; margin-bottom: 28px; }
+  .skills-list li { font-size: 0.9rem; gap: 12px; }
+  .about-footer { padding-top: 18px; }
+  .about-footer p { font-size: 0.8rem; }
 }

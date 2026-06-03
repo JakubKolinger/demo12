@@ -1,6 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
 /* Globální reset a písmo */
 * {
+  box-shadow: none;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -8,54 +8,30 @@
 
 body {
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: #f8fafc;
-  color: #334155;
+  background-color: #f4f1ea; /* Sjednoceno s pozadím wrapperu */
+  color: #3b4038;
   line-height: 1.6;
-  padding: 20px;
+  padding: 0; /* Odstraněn pevný padding těla, řeší se flexibilně */
 }
 
-/* Kontejner pro celou aplikaci */
+/* Kontejner pro celou aplikaci - plně responzivní */
 app-root {
   display: block;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   background: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  min-height: 100vh;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
-/* Hlavní nadpis aplikace */
-h1 {
-  color: #1e293b;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #e2e8f0;
-  padding-bottom: 10px;
+/* Na tabletech a počítačích přidáme odsazení od krajů obrazovky */
+@media (min-width: 768px) {
+  body {
+    padding: 20px;
+  }
+  app-root {
+    min-height: calc(100vh - 40px);
+    border-radius: 12px;
+    overflow: hidden;
+  }
 }
-
-/* Globální stylování navigace */
-nav {
-  background-color: #1e293b;
-  padding: 12px 20px;
-  border-radius: 8px;
-  margin-bottom: 30px;
-  display: flex;
-  gap: 10px;
-}
-
-nav a {
-  color: #cbd5e1;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 8px 16px;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-}
-
-nav a:hover {
-  background-color: #334155;
-  color: #ffffff;
-}
-
-

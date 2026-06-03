@@ -1,88 +1,95 @@
 .contacts-container {
-  padding: 30px 24px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .contacts-header {
-  margin-bottom: 28px;
+  margin-bottom: 20px;
   border-bottom: 1px solid #e9e5db;
   padding-bottom: 12px;
 }
 
 .contacts-header h2 {
   color: #32563d;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin: 0 0 6px 0;
 }
 
 .section-desc {
   color: #686d64;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   margin: 0;
 }
 
 .status-msg {
   color: #8c9288;
   font-style: italic;
+  font-size: 0.9rem;
 }
 
 .error-msg {
   background-color: #fdf2f2;
   color: #9b1c1c;
-  padding: 14px;
+  padding: 12px;
   border-radius: 6px;
   border-left: 4px solid #f8b4b4;
+  font-size: 0.9rem;
 }
 
+/* Responzivní mřížka - na mobilu 1 sloupec, na PC automaticky vedle sebe */
 .contacts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
 .contact-card {
   background: #ffffff;
   border: 1px solid #e9e5db;
   border-radius: 6px;
-  padding: 22px;
+  padding: 16px;
   display: flex;
-  gap: 18px;
+  gap: 14px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01);
 }
 
 .card-avatar {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   background-color: #f4f1ea;
-  width: 52px;
-  height: 52px;
+  width: 46px;
+  height: 46px;
   border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0; /* Zabrání deformaci ikony na úzkém displeji */
 }
 
 .card-main {
   display: flex;
   flex-direction: column;
   flex: 1;
+  min-width: 0; /* Klíčové: zabrání dlouhým emailům rozbít šířku karty */
 }
 
 .card-main h3 {
   color: #21241f;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Dlouhé jméno se v klidu zkrátí třemi tečkami */
 }
 
 .role-badge {
   align-self: flex-start;
-  background-color: #eef3ef; /* Světle zelenkavý badge */
+  background-color: #eef3ef;
   color: #4a7c59;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  padding: 3px 10px;
+  padding: 2px 8px;
   border-radius: 4px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .info-row {
@@ -93,14 +100,18 @@
 
 .info-row .label {
   color: #8c9288;
-  width: 65px;
+  width: 60px;
   font-weight: 500;
+  flex-shrink: 0;
 }
 
 .info-row a {
   color: #c87a53;
   text-decoration: none;
   font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Dlouhý email nepřeteče z mobilu ven */
 }
 
 .info-row a:hover {
@@ -110,4 +121,23 @@
 
 .phone-num {
   color: #3b4038;
+}
+
+/* Úpravy pro tablety a PC rozlišení */
+@media (min-width: 768px) {
+  .contacts-header { margin-bottom: 28px; }
+  .contacts-header h2 { font-size: 1.5rem; }
+  .section-desc { font-size: 0.9rem; }
+
+  .contacts-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .contact-card { padding: 22px; gap: 18px; }
+  .card-avatar { font-size: 1.8rem; width: 52px; height: 52px; }
+  .card-main h3 { font-size: 1.15rem; }
+  .role-badge { font-size: 0.75rem; padding: 3px 10px; }
+  .info-row { font-size: 0.88rem; }
+  .info-row .label { width: 65px; }
 }

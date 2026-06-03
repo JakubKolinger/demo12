@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - 'src/main/frontend/**'         # spustí se pouze při změně souborů ve frontend/
+      - 'src/main/frontend/**'
 
 jobs:
   build:
@@ -22,18 +22,22 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_TOKEN }}
 
-      # Převeď jméno vlastníka na lowercase a získej krátký SHA commitu
       - name: Set environment variables
         run: |
-          echo "OWNER_LOWER=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+          OWNER_LOWER=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')
+          echo "OWNER_LOWER=$OWNER_LOWER" >> $GITHUB_ENV
           echo "TAG=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+          
+          # Skriptu předáme jen vlastníka, token a název frontend image
+          VLASTNI_TAG=$(./get-tag.sh "$OWNER_LOWER" "${{ secrets.GHCR_TOKEN }}" "praxe-demo12-frontend")
+          echo "VLASTNI_TAG=$VLASTNI_TAG" >> $GITHUB_ENV
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: ./src/main/frontend
           push: true
-          # Zde místo github.repository_owner použijeme novou proměnnou env.OWNER_LOWER
           tags: |
             ghcr.io/${{ env.OWNER_LOWER }}/praxe-demo12-frontend:${{ env.TAG }}
             ghcr.io/${{ env.OWNER_LOWER }}/praxe-demo12-frontend:latest
+            ${{ env.VLASTNI_TAG != '' && format('ghcr.io/{0}/praxe-demo12-frontend:{1}', env.OWNER_LOWER, env.VLASTNI_TAG) || '' }}
