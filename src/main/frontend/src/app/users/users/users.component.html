@@ -6,10 +6,10 @@
     </a>
   </div>
 
-  <p *ngIf=\"loading\" class="table-loading">Načítání uživatelů...</p>
-  <p *ngIf=\"error\" class="table-error">{{ error }}</p>
+  <p *ngIf="loading" class="table-loading">Načítání uživatelů...</p>
+  <p *ngIf="error" class="table-error">{{ error }}</p>
 
-  <div class="table-responsive" *ngIf=\"!loading && !error\">
+  <div class="table-responsive" *ngIf="!loading && !error">
   <table>
     <thead>
     <tr>
@@ -19,9 +19,9 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor=\"let user of users\" class="user-row">
+    <tr *ngFor="let user of users" class="user-row">
     <td class="col-action">
-      <a routerLink="/user/remove" class="btn-delete-trash" title="Odstranit uživatele">
+      <a routerLink="/user/remove" routerLinkActive="active" class="btn-delete-trash" title="Odstranit uživatele">
         <span class="trash-icon">🗑️</span>
       </a>
     </td>
