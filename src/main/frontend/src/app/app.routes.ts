@@ -2,9 +2,9 @@ import { Routes } from '@angular/router';
 import {UsersComponent} from './users/users/users.component';
 import {ContactsComponent} from './contacts/contacts.component';
 import {AboutComponent} from './about/about.component';
-import {AdduserComponent} from './users/adduser/adduser.component';
-import {RemoveuserComponent} from './users/removeuser/removeuser.component';
-import {ModifyuserComponent} from './users/modifyuser/modifyuser.component';
+import {AdduserComponent} from './users/users/adduser/adduser.component';
+import {RemoveuserComponent} from './users/users/removeuser/removeuser.component';
+import {ModifyuserComponent} from './users/users/modifyuser/modifyuser.component';
 
 export const routes: Routes = [
 
