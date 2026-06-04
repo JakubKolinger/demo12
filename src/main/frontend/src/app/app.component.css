@@ -1,9 +1,12 @@
-/* Horní panel - elegantní šalvějová zelená */
+/* ==========================================================================
+   1. HLAVNÍ STRUKTURA A LAYOUT (PŮVODNÍ APP)
+   ========================================================================== */
+
 .header-top-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #4a7c59;
+  background-color: #4a7c59; /* Šalvějová zelená */
   padding: 16px 20px;
   color: #ffffff;
   box-shadow: 0 4px 12px rgba(74, 124, 89, 0.08);
@@ -16,7 +19,6 @@
   letter-spacing: 0.3px;
 }
 
-/* Profilové tlačítko */
 .profile-avatar {
   width: 38px;
   height: 38px;
@@ -32,20 +34,24 @@
   flex-shrink: 0;
 }
 
-/* Hlavní menu - na mobilu horizontálně posuvné */
+.profile-avatar:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Horizontálně posuvné menu pro mobilní zařízení */
 nav {
   display: flex;
   background-color: #faf9f6;
   padding: 0 10px;
   border-bottom: 1px solid #e9e5db;
-  overflow-x: auto; /* Klíčové pro mobilní swipování */
-  -webkit-overflow-scrolling: touch; /* Hladký posun na iOS */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   gap: 4px;
 }
 
-/* Skrytí scrollbaru v menu, aby vypadalo čistě */
 nav::-webkit-scrollbar {
-  display: none;
+  display: none; /* Skryje scrollbar v menu */
 }
 
 nav a {
@@ -55,7 +61,7 @@ nav a {
   font-size: 0.88rem;
   font-weight: 500;
   border-bottom: 3px solid transparent;
-  white-space: nowrap; /* Text se nikdy nezalomí pod sebe */
+  white-space: nowrap;
   transition: all 0.2s ease;
 }
 
@@ -65,24 +71,159 @@ nav a:hover {
 }
 
 nav a.active {
-  color: #c87a53;
-  border-bottom-color: #c87a53;
-  background-color: #f3eddf;
+  color: #32563d;
+  font-weight: 600;
+  border-bottom-color: #4a7c59;
+}
+
+.logo {
+  color: #c87a53 !important; /* Terakotová barva pro externí odkazy */
   font-weight: 600;
 }
 
-/* Obal pro vnitřní stránky */
 .main-content-wrapper {
-  background-color: #f4f1ea;
+  padding: 20px 16px;
+  background-color: #fdfcfb;
   min-height: calc(100vh - 120px);
-  padding: 20px 15px 40px 15px;
 }
 
-/* Zvětšení odsazení a textu pro tablety a PC */
+
+/* ==========================================================================
+   2. INTEGROVANÝ OBSAH DOMOVSKÉ STRÁNKY (PŮVODNÍ HOME)
+   ========================================================================== */
+
+.home-embed-content {
+  margin-bottom: 24px;
+}
+
+/* Uvítací hrdinský banner */
+.welcome-hero {
+  background: #ffffff;
+  border: 1px solid #e9e5db;
+  border-left: 5px solid #4a7c59;
+  border-radius: 6px;
+  padding: 24px 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01);
+}
+
+.welcome-hero h1 {
+  color: #32563d;
+  font-size: 1.5rem;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+  border-bottom: none; /* Reset případného globálního h1 stylování */
+  padding-bottom: 0;
+}
+
+.welcome-hero p {
+  color: #61665d;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Hlavní terakotové tlačítko */
+.btn-hero {
+  display: inline-block;
+  background-color: #c87a53;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-align: center;
+  width: 100%; /* Na mobilu přes celou šířku */
+  box-shadow: 0 2px 6px rgba(200, 122, 83, 0.2);
+  transition: all 0.2s ease;
+}
+
+.btn-hero:hover {
+  background-color: #b36740;
+  transform: translateY(-1px);
+}
+
+/* Responzivní mřížka rozcestníku */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Na mobilu pod sebou */
+  gap: 16px;
+}
+
+/* Dlaždice (Karty) */
+.dash-card {
+  background: #ffffff;
+  border: 1px solid #e9e5db;
+  border-top: 4px solid #e9e5db;
+  border-radius: 6px;
+  padding: 22px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01);
+  transition: all 0.25s ease-in-out;
+}
+
+.dash-card:hover {
+  border-top-color: #4a7c59;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(74, 124, 89, 0.04);
+}
+
+.card-icon {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.dash-card h3 {
+  color: #32563d;
+  font-size: 1.15rem;
+  margin: 0 0 8px 0;
+}
+
+.dash-card p {
+  color: #686d64;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+}
+
+.card-link {
+  font-size: 0.85rem;
+  color: #c87a53;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.dash-card:hover .card-link {
+  color: #b36740;
+}
+
+
+/* ==========================================================================
+   3. RESPONSIVE BREAKPOINTS (PRO TABLETY A MONITORY)
+   ========================================================================== */
+
 @media (min-width: 768px) {
-  .header-top-bar { padding: 16px 24px; }
-  .header-top-bar h1 { font-size: 1.4rem; }
-  nav { padding: 0 24px; gap: 8px; }
-  nav a { padding: 16px 14px; font-size: 0.9rem; }
-  .main-content-wrapper { padding: 30px 24px 40px 24px; }
+  /* Layout záhlaví */
+  .header-top-bar { padding: 18px 30px; }
+  .header-top-bar h1 { font-size: 1.45rem; }
+  .profile-avatar { width: 42px; height: 42px; font-size: 1.2rem; }
+
+  nav { padding: 0 30px; gap: 12px; }
+  nav a { padding: 16px 16px; font-size: 0.92rem; }
+
+  .main-content-wrapper { padding: 30px; }
+
+  /* Integrovaný Home Home */
+  .welcome-hero { padding: 36px 30px; margin-bottom: 30px; }
+  .welcome-hero h1 { font-size: 1.85rem; }
+  .welcome-hero p { font-size: 1rem; max-width: 700px; }
+
+  .btn-hero { width: auto; padding: 12px 28px; } /* Na PC už tlačítko neni přes celou šířku */
+
+  /* Mřížka rozcestníku skočí na 3 sloupce vedle sebe */
+  .dashboard-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
 }

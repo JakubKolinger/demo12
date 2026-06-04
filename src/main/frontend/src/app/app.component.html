@@ -1,15 +1,14 @@
 <div class="header-top-bar">
   <h1>Moje Škola</h1>
-
   <a routerLink="/login" routerLinkActive="active" class="profile-avatar" title="Přihlásit se">
     <span>👤</span>
   </a>
 </div>
 
 <nav>
-  <a href="https://mentor.baprace.online/" class="logo">Mentor</a>
-  <a href="https://dominik.baprace.online/" class="logo">Dominik</a>
-  <a routerLink="/home" routerLinkActive="active">Domů</a>
+  <a href="https://mentor.baprace.online/home" class="logo">Mentor</a>
+  <a href="https://dominik.baprace.online/home" class="logo">Dominik</a>
+  <a routerLink="/" routerLinkActive="active">Domů</a>
   <a routerLink="/contacts" routerLinkActive="active">Kontakty</a>
   <a routerLink="/about" routerLinkActive="active">O Společnosti</a>
   <a routerLink="/users" routerLinkActive="active">Uživatelé</a>
@@ -18,5 +17,37 @@
 </nav>
 
 <div class="main-content-wrapper">
+
+  <div class="home-embed-content" *ngIf="router.url === '/' || router.url === '/home'">
+    <section class="welcome-hero">
+      <h1>Vítejte ve Vaší Angular aplikaci</h1>
+      <p>Tento systém slouží pro efektivní správu studentů, rychlý přístup ke kontaktům a přehled o mém profesním profilu.</p>
+      <a routerLink="/users" class="btn-hero">Zobrazit studenty</a>
+    </section>
+
+    <div class="dashboard-grid">
+      <div class="dash-card" routerLink="/users">
+        <div class="card-icon">🎓</div>
+        <h3>Správa studentů</h3>
+        <p>Prohlížejte si seznam registrovaných studentů, jejich identifikační čísla a kontaktní e-maily.</p>
+        <span class="card-link">Přejít na studenty &rarr;</span>
+      </div>
+
+      <div class="dash-card" routerLink="/contacts">
+        <div class="card-icon">📞</div>
+        <h3>Kontakty</h3>
+        <p>Potřebujete se s námi spojit? Podívejte se na telefonní čísla a e-maily na kompetentní osoby.</p>
+        <span class="card-link">Zobrazit kontakty &rarr;</span>
+      </div>
+
+      <div class="dash-card" routerLink="/about">
+        <div class="card-icon">👨‍💻</div>
+        <h3>O mně</h3>
+        <p>Chcete vědět, kdo stojí za vývojem tohoto systému? Přečtěte si detaily o naší technologické společnosti.</p>
+        <span class="card-link">Více o nás &rarr;</span>
+      </div>
+    </div>
+  </div>
+
   <router-outlet />
 </div>
