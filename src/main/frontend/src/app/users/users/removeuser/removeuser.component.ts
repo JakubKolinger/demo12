@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import {RouterModule, RouterOutlet} from '@angular/router';
 import {User} from '../../../user.model';
 import {UserService} from '../../../user.service';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-removeuser',
   standalone: true,
-  imports: [RouterModule, RouterOutlet],
+  imports: [RouterModule, RouterOutlet, CommonModule],
   templateUrl: './removeuser.component.html',
   styleUrl: './removeuser.component.css'
 })

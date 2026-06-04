@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import {UserService} from '../../../user.service';
 import {User} from '../../../user.model';
+import {CommonModule} from '@angular/common';
+import {RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-modifyuser',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './modifyuser.component.html',
   styleUrl: './modifyuser.component.css'
 })

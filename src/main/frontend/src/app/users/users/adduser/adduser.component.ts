@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {RouterModule, RouterOutlet} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import { UserService } from '../../../user.service';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-adduser',
   standalone: true,
-  imports: [RouterModule, RouterOutlet, FormsModule],
+  imports: [RouterModule, RouterOutlet, FormsModule, CommonModule],
   templateUrl: './adduser.component.html',
   styleUrl: './adduser.component.css'
 })
