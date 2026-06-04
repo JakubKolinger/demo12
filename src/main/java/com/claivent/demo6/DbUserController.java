@@ -30,17 +30,14 @@ public class DbUserController {
     public List<DbUser> dbUsers() {
         return dbUserServices.getAllUsers();
     }
-    /*
+
     @PostMapping("/add")
     public ResponseEntity<DbUser> addUser(@RequestBody DbUser user) {
         return ResponseEntity.status(HttpStatus.CREATED).body(dbUserServices.addUser(user));
     }
-    */
 
-    @PostMapping("/add")
-    String addUser(@RequestBody DbUser user) {
-        return "add";
-    }
+
+
 
 
     @DeleteMapping("/delete/{id}")
