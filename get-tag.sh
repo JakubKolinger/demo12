@@ -7,9 +7,9 @@ PACKAGE_NAME="$3"
 
 # --- ZDE SI NASTAVUJEŠ VERZE PRO KAŽDOU APLIKACI ZVLÁŠŤ ---
 if [ "$PACKAGE_NAME" = "praxe-demo12-frontend" ]; then
-  MOJE_VERZE="v1.1.4"   # <--- Verze pro frontend
+  MOJE_VERZE="v1.2.3"   # <--- Verze pro frontend
 else
-  MOJE_VERZE="v1.1.6"   # <--- Verze pro backend / hlavní app
+  MOJE_VERZE="v1.2.0"   # <--- Verze pro backend / hlavní app
 fi
 # ---------------------------------------------------------
 

@@ -6,7 +6,7 @@ import {Contact} from './contact.model';
 @Injectable({ providedIn: 'root' })
 export class ContactService {
   //private apiUrl = '/api/contacts';
-  private apiUrl = 'https://jakub.baprace.online/api/db/users';
+  private apiUrl = '/api/db/users';
 
   constructor(private http: HttpClient) {}
 
