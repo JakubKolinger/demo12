@@ -3,8 +3,8 @@ import {UsersComponent} from './users/users/users.component';
 import {ContactsComponent} from './contacts/contacts.component';
 import {AboutComponent} from './about/about.component';
 import {LoginComponent} from './login/login.component';
-import {AdduserComponent} from './adduser/adduser.component';
-import {RemoveuserComponent} from './removeuser/removeuser.component';
+import {AdduserComponent} from './users/adduser/adduser.component';
+import {RemoveuserComponent} from './users/removeuser/removeuser.component';
 
 export const routes: Routes = [
 
