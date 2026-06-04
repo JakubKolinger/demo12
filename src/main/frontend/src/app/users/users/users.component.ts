@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../../user.model';
-import { StudentService, TeacherService } from '../../user.service';
+import { UserService, TeacherService } from '../../user.service';
 import { CommonModule } from '@angular/common';
 import {RouterModule, RouterOutlet} from '@angular/router';
 
@@ -82,10 +82,10 @@ export class StudentComponent implements OnInit {
   error: string | null = null;
   loading = true;
 
-  constructor(private studentService: StudentService) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    this.studentService.getStudents().subscribe({
+    this.userService.getUsers().subscribe({
       next: (data) => {
         this.students = data;
         this.loading = false;

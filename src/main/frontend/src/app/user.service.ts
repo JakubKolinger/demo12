@@ -4,13 +4,25 @@ import { Observable } from 'rxjs';
 import { User } from './user.model';
 
 @Injectable({ providedIn: 'root' })
-export class StudentService {
-  private apiUrl = '/api/students';
+export class UserService {
+  private base = '/api/db';
 
   constructor(private http: HttpClient) {}
 
-  getStudents(): Observable<User[]> {
-    return this.http.get<User[]>(this.apiUrl);
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.base}/users`);
+  }
+
+  addUser(user: { name: string; email: string }): Observable<User> {
+    return this.http.post<User>(`${this.base}/add`, user);
+  }
+
+  deleteUser(id: number): Observable<{ message: string }> {
+    return this.http.delete<{ message: string }>(`${this.base}/delete/${id}`);
+  }
+
+  modifyUser(id: number, patch: { name?: string; email?: string }): Observable<User> {
+    return this.http.patch<User>(`${this.base}/modify/${id}`, patch);
   }
 }
 
@@ -23,4 +35,5 @@ export class TeacherService {
   getTeachers(): Observable<User[]> {
     return this.http.get<User[]>(this.apiUrl);
   }
+
 }
