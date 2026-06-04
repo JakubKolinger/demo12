@@ -3,11 +3,12 @@ import {UserService} from '../../../user.service';
 import {User} from '../../../user.model';
 import {CommonModule} from '@angular/common';
 import {RouterOutlet} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-modifyuser',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, FormsModule],
   templateUrl: './modifyuser.component.html',
   styleUrl: './modifyuser.component.css'
 })
