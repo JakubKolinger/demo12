@@ -5,7 +5,9 @@
 <nav>
   <a href="https://mentor.baprace.online/home" class="logo">Mentor</a>
   <a href="https://dominik.baprace.online/home" class="logo">Dominik</a>
-  <a routerLink="/" routerLinkActive="active">Domů</a>
+
+  <a routerLink="/" [class.active]="router.url === '/'">Domů</a>
+
   <a routerLink="/contacts" routerLinkActive="active">Kontakty</a>
   <a routerLink="/about" routerLinkActive="active">O Společnosti</a>
   <a routerLink="/users" routerLinkActive="active">Uživatelé</a>
@@ -16,11 +18,11 @@
 
 <div class="main-content-wrapper">
 
-  <div class="home-embed-content" *ngIf="router.url === '/' || router.url === '/home'">
+  <div class="home-embed-content" *ngIf="router.url === '/'">
     <section class="welcome-hero">
       <h1>Vítejte ve Vaší Angular aplikaci</h1>
       <p>Tento systém slouží pro efektivní správu studentů, rychlý přístup ke kontaktům a přehled o mém profesním profilu.</p>
-      <a routerLink="/users" class="btn-hero">Zobrazit studenty</a>
+      <a routerLink="/users" class="btn-hero" style="text-decoration: none; display: inline-block;">Zobrazit studenty</a>
     </section>
 
     <div class="dashboard-grid">

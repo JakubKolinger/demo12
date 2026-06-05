@@ -1,68 +1,169 @@
 :host {
   display: block;
-  max-width: 1200px;
+  max-width: 600px;
   margin: 0 auto;
+  padding: 16px;
 }
 
-.admin-card {
+.card {
   background: #ffffff;
   border: 1px solid #e9e5db;
-  border-top: 4px solid #c87a53; /* Terakota pro smazání */
+  border-top: 4px solid #ef4444; /* Výstražná červená pro mazání */
   border-radius: 6px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+  padding: 26px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
 }
 
-.card-header-bar {
+.card h2 {
+  color: #9b1c1c;
+  font-size: 1.35rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f4f1ea;
+  padding-bottom: 8px;
+}
+
+/* Červené otevírací tlačítko */
+.btn-danger {
+  background-color: #ef4444;
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(239, 68, 68, 0.15);
+}
+.btn-danger:hover { background-color: #dc2626; transform: translateY(-1px); }
+
+/* Notifikace */
+.alert { padding: 12px 14px; border-radius: 4px; font-size: 0.88rem; margin-top: 16px; }
+.alert-success { background-color: #f2f7f2; color: #275433; border-left: 4px solid #8ebd9b; }
+.alert-error { background-color: #fdf2f2; color: #9b1c1c; border-left: 4px solid #f8b4b4; }
+.status-text { color: #8c9288; font-style: italic; font-size: 0.9rem; }
+
+/* ==========================================================================
+   SPOLEČNÉ MODÁLNÍ STRUKTURY
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(155, 28, 28, 0.2); /* Jemný červenavý nádech pozadí */
+  backdrop-filter: blur(2px);
+  z-index: 999;
+}
+
+.modal {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  border: 1px solid #e9e5db;
+  border-radius: 6px;
+  width: 90%;
+  max-width: 550px;
+  max-height: 80vh;
   display: flex;
-  flex-direction: column; /* Na mobilu pod sebou */
-  gap: 8px;
-  align-items: flex-start;
-  border-bottom: 1px solid #f4f1ea;
-  padding-bottom: 12px;
-  margin-bottom: 12px;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  z-index: 1000;
 }
 
-.card-header-bar h2 { color: #32563d; font-size: 1.25rem; margin: 0; }
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background-color: #faf9f6;
+  border-bottom: 1px solid #e9e5db;
+  font-weight: 600;
+  color: #32563d;
+}
 
-.badge-red {
+/* Speciální nebezpečné záhlaví pro druhé okno */
+.modal-header.danger {
   background-color: #fdf2f2;
   color: #9b1c1c;
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 4px;
+  border-bottom-color: #f8b4b4;
 }
 
-.section-desc { color: #8c9288; font-size: 0.88rem; margin-top: 0; margin-bottom: 20px; }
+.modal-close {
+  background: none; border: none;
+  font-size: 1.1rem; color: #8c9288;
+  cursor: pointer; transition: color 0.2s;
+}
+.modal-close:hover { color: #9b1c1c; }
+.modal-body { padding: 20px; overflow-y: auto; }
 
-.coming-soon-box {
+/* Tabulka v prvním modálu */
+.modal-body table { width: 100%; border-collapse: collapse; text-align: left; }
+.modal-body th {
+  background-color: #faf9f6; color: #686d64; font-size: 0.75rem; font-weight: 600;
+  text-transform: uppercase; padding: 10px 12px; border-bottom: 2px solid #e9e5db;
+}
+.modal-body td { padding: 10px 12px; font-size: 0.88rem; color: #3b4038; border-bottom: 1px solid #f4f1ea; }
+.modal-row { cursor: pointer; transition: background-color 0.15s; }
+.modal-row:hover td { background-color: #fdf2f2; color: #9b1c1c; }
+
+/* ==========================================================================
+   DRUHÝ MODÁL: POTVRZENÍ SMAZÁNÍ (KARTA UŽIVATELE)
+   ========================================================================== */
+.user-card {
   background-color: #faf9f6;
-  border: 1px dashed #cbd5e1;
-  border-radius: 6px;
-  padding: 30px 16px;
-  text-align: center;
-  margin-bottom: 20px;
+  border: 1px solid #e9e5db;
+  border-radius: 4px;
+  padding: 14px;
+  margin-bottom: 16px;
 }
 
-.icon-construction { font-size: 2.5rem; margin-bottom: 10px; display: inline-block; }
-.coming-soon-box h3 { color: #b36740; font-size: 1.15rem; margin: 0 0 8px 0; }
-.coming-soon-text { color: #686d64; font-size: 0.85rem; line-height: 1.5; }
+.user-row {
+  display: flex;
+  font-size: 0.9rem;
+  padding: 6px 0;
+  border-bottom: 1px solid #f4f1ea;
+}
+.user-row:last-child { border-bottom: none; }
 
-.action-footer { border-top: 1px solid #f4f1ea; padding-top: 16px; }
-.btn-secondary { display: inline-block; color: #686d64; text-decoration: none; font-size: 0.88rem; font-weight: 500; }
-.btn-secondary:hover { color: #4a7c59; text-decoration: underline; }
+.user-row .lbl {
+  width: 80px;
+  font-weight: 600;
+  color: #686d64;
+}
 
-/* Desktop vylepšení */
+.warning-text {
+  color: #9b1c1c;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background-color: #fdf2f2;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  border-left: 3px solid #ef4444;
+}
+
+/* Spodní tlačítka v potvrzovacím modálu */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn-secondary {
+  background-color: #faf9f6;
+  color: #686d64;
+  border: 1px solid #e9e5db;
+  padding: 10px 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-secondary:hover { background-color: #f4f1ea; color: #3b4038; }
+
 @media (min-width: 768px) {
-  .admin-card { padding: 30px; }
-  .card-header-bar { flex-direction: row; justify-content: space-between; align-items: center; }
-  .card-header-bar h2 { font-size: 1.4rem; }
-  .section-desc { font-size: 0.9rem; margin-bottom: 24px; }
-  .coming-soon-box { padding: 40px 20px; margin-bottom: 24px; }
-  .icon-construction { font-size: 3rem; margin-bottom: 15px; }
-  .coming-soon-box h3 { font-size: 1.2rem; }
-  .coming-soon-text { font-size: 0.9rem; max-width: 600px; margin: 0 auto; }
-  .action-footer { padding-top: 20px; }
-  .btn-secondary { font-size: 0.9rem; }
+  :host { padding: 24px; }
+  .card { padding: 30px; }
 }
