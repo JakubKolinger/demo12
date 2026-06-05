@@ -5,7 +5,7 @@ import { User } from './user.model';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
-  private base = '/api/db';
+  private base = 'http://localhost:8090/api/db';
 
   constructor(private http: HttpClient) {}
 
@@ -28,7 +28,7 @@ export class UserService {
 
 @Injectable({ providedIn: 'root' })
 export class TeacherService {
-  private apiUrl = '/api/teachers';
+  private apiUrl = 'http://localhost:8090/api/teachers';
 
   constructor(private http: HttpClient) {}
 
